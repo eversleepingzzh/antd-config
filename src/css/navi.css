@@ -1,0 +1,33 @@
+.navibar {
+    position: relative;
+    width: 100%;
+    background: #444;
+}
+.navibar-inner {
+    background: 0 0;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    width: 90%;
+    margin: auto;
+    padding: 5px;
+}
+.navibar a {
+    text-decoration: none;
+    color: #cccccc;
+}
+.nav li{
+    float: left;
+    list-style: none;
+    margin-left: 20px;
+    text-decoration: none;
+}
+.clearfix::after {
+    content: ".";
+    clear: both;
+    display: block;
+    overflow: hidden;
+    font-size: 0;
+    height: 0;
+}
+
