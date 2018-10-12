@@ -5,7 +5,6 @@ import Home from './component/home'
 import Register from './component/register'
 import Login from './component/login'
 
-
 class App extends Component {
     render() {
         return (
