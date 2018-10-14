@@ -1,5 +1,3 @@
-
-
 export default function request(params) {
     return new Promise((resolve, reject)=> {
         let config = {

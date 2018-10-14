@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Input, Button } from 'antd';
+import { Input, Button, message } from 'antd';
 import * as request from '../apiserver/request';
 import '../css/register.css'
 
@@ -26,6 +26,7 @@ class Register extends Component {
             console.log(res)
         }).catch((err) => {
             console.log(err)
+            message.info(err.rspDesc)
         })
     }
     render() {

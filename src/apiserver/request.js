@@ -19,3 +19,4 @@ export function register(bodyparams) {
     }
     return request(params)
 }
+

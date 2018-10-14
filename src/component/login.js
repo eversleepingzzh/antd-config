@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Input, Button } from 'antd';
 import { Redirect } from 'react-router-dom';
 import * as request from '../apiserver/request';
+import { appLogin } from '../action/app';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import '../css/login.css'
 
 
@@ -11,7 +14,6 @@ class Login extends Component {
         this.state = {
             name: '',
             pwd: '',
-            isLogin: false,
         }
     }
 
@@ -26,19 +28,21 @@ class Login extends Component {
             username:this.state.name,
             password:this.state.pwd,
         }).then((res) => {
+            console.log(res)
             if(res.msg === 'success') {
-                this.setState({
-                    isLogin: true
-                })
+                this.props.appLogin(true)
             }
         }).catch((err) => {
             console.log(err)
         })
     }
+
+    _test() {
+        let {app} = this.props
+        console.log(app)
+    }
+
     render() {
-        if(this.state.isLogin) {
-           return  <Redirect to={"/"} />
-        }
         return (
             <div className={'main'}>
                 <div className={"sidebar"}></div>
@@ -50,6 +54,9 @@ class Login extends Component {
                         <Button type="primary" onClick={() => {
                             this._submit()
                         }}>提交</Button>
+                        <Button onClick={() => {
+                            this._test()
+                        }}>测试</Button>
                     </div>
                 </div>
             </div>
@@ -57,4 +64,17 @@ class Login extends Component {
     }
 }
 
-export default Login
+
+function mapStateToProps(state) {
+    return {
+        app: state.app
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        appLogin: bindActionCreators(appLogin, dispatch),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
