@@ -12,7 +12,7 @@ class App extends Component {
                 <Router>
                     <div>
                         <Navigation />
-                        <Route exact path={"/"} component={Home}/>
+                        <Route path={"/home"} component={Home}/>
                         <Route path={"/register"} component={Register}/>
                         <Route path={"/login"} component={Login}/>
                         <Route path={"/about"} component={About}/>

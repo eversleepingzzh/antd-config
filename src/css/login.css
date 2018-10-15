@@ -6,6 +6,7 @@
     min-height: 400px;
     position: relative;
 }
+
 .sidebar {
     width: 290px;
     font-size: 14px;
@@ -13,10 +14,31 @@
     margin-bottom: 20px;
 }
 .content {
-    padding: 0;
+    padding-bottom: 30px;
     margin-right: 305px;
-    background: gray;
+    background: white;
+}
+.login_header {
+    color: #80bd01;
+    background: #f6f6f6;
+    padding: 10px;
+    border-radius: 3px 3px 0 0
 }
 .inner {
-    width:300px;
+    width: 100%;
+    padding-top:60px;
+}
+.inner .user_input {
+    width:200px;
+    text-align:right;
+    margin-right: 30px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 32px;
+}
+.inner .input_box {
+    width:250px
+}
+.submit {
+    margin: 30px 0 40px 230px;
 }
