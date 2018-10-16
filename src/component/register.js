@@ -24,12 +24,13 @@ class Register extends Component {
             username:this.state.name,
             password:this.state.pwd,
         }).then((res) => {
+            console.log(res)
             if(res.msg == "success") {
                 message.info("注册成功")
             }
-            this.setState({
-                isRegister: true
-            })
+            // this.setState({
+            //     isRegister: true
+            // })
         }).catch((err) => {
             console.log(err)
             message.info(err.rspDesc)

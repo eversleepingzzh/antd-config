@@ -4,7 +4,7 @@ import request from './fetch'
 
 export function login(bodyparams) {
     let params = {
-        url: '/login',
+        url: 'index/login',
         method: 'POST',
         body: bodyparams || {}
     }
@@ -13,7 +13,7 @@ export function login(bodyparams) {
 
 export function register(bodyparams) {
     let params = {
-        url: '/register',
+        url: 'index/register',
         method: 'POST',
         body: bodyparams || {}
     }
