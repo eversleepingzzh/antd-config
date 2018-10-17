@@ -32,7 +32,7 @@ class Navigation extends Component {
                             <div className="container">
                                 <ul className="nav pull-right clearfix">
                                     <li><Link to={"/home"}>首页</Link></li>
-                                    <li><Link to={"/newcomer"}>新手入门</Link></li>
+                                    <li><Link to={"/writing"}>发表帖子</Link></li>
                                     <li><Link to={"/api"}>API</Link></li>
                                     <li><Link to={"/about"}>关于</Link></li>
                                     <li><Link to={"/setting"}>设置</Link></li>

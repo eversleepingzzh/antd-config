@@ -20,3 +20,11 @@ export function register(bodyparams) {
     return request(params)
 }
 
+export function topic_add(bodyparams) {
+    let params = {
+        url: 'topic/add',
+        method: 'POST',
+        body: bodyparams || {}
+    }
+    return request(params)
+}
