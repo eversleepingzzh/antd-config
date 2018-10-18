@@ -11,6 +11,9 @@ export default function request(params) {
             mode: 'cors',
             body: JSON.stringify(params.body || {})
         }
+        if(params.method == "GET") {
+            delete config["body"]
+        }
 
         fetch(params.url, config).then((response)=> {
             if (response.status >= 200 && response.status < 300) {

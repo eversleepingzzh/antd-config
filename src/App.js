@@ -5,6 +5,7 @@ import Home from './component/home'
 import Register from './component/register'
 import Login from './component/login'
 import Writing from './component/writing'
+import Topic from './component/topic'
 
 class App extends Component {
     render() {
@@ -18,6 +19,7 @@ class App extends Component {
                         <Route path={"/register"} component={Register}/>
                         <Route path={"/login"} component={Login}/>
                         <Route path={"/about"} component={About}/>
+                        <Route path={"/topic/:topicId"} component={Topic}/>
                     </div>
                 </Router>
             </div>

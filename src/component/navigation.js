@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import '../css/navi.css'
 import {bindActionCreators} from "redux";
 import connect from "react-redux/es/connect/connect";
+import {getTopics} from "../action/app";
 
 class Navigation extends Component {
     _logOut() {
@@ -55,7 +56,9 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-
+    return {
+        getTopics: bindActionCreators(getTopics, dispatch),
+    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navigation)

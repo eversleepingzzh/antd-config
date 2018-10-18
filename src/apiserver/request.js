@@ -28,3 +28,29 @@ export function topic_add(bodyparams) {
     }
     return request(params)
 }
+
+export function topic_all() {
+    let params = {
+        url: 'topic',
+        method: 'GET'
+    }
+    return request(params)
+}
+
+export function topic_detail(bodyparams) {
+    let params = {
+        url: 'detail',
+        method: 'POST',
+        body: bodyparams || {}
+    }
+    return request(params)
+}
+
+export function reply_add(bodyparams) {
+    let params = {
+        url: 'http://localhost:2000/api/reply/add',
+        method: "POST",
+        body: bodyparams || {}
+    }
+    return request(params)
+}
