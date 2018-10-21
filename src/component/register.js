@@ -25,12 +25,12 @@ class Register extends Component {
             password:this.state.pwd,
         }).then((res) => {
             console.log(res)
-            if(res.msg == "success") {
-                message.info("注册成功")
+            if(res) {
+                message.info(res.msg)
+                this.setState({
+                    isRegister: true
+                })
             }
-            // this.setState({
-            //     isRegister: true
-            // })
         }).catch((err) => {
             console.log(err)
             message.info(err.rspDesc)
@@ -38,7 +38,7 @@ class Register extends Component {
     }
     render() {
         if(this.state.isRegister) {
-            return <Redirect to={"/"} />
+            return <Redirect to={"/login"} />
         }
         return (
             <div className={'main'}>

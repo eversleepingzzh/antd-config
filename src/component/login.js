@@ -4,6 +4,8 @@ import * as request from '../apiserver/request';
 import { appLogin } from '../action/app';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Redirect } from 'react-router-dom'
+import { message } from 'antd'
 import '../css/login.css'
 
 
@@ -13,6 +15,7 @@ class Login extends Component {
         this.state = {
             name: '',
             pwd: '',
+            isLogin:false
         }
     }
 
@@ -27,9 +30,12 @@ class Login extends Component {
             username:this.state.name,
             password:this.state.pwd,
         }).then((res) => {
-            console.log(res)
-            if(res.msg === 'success') {
+            if(res) {
                 this.props.appLogin(true)
+                message.info('登陆成功')
+                this.setState({
+                    isLogin: true
+                })
             }
         }).catch((err) => {
             console.log(err)
@@ -42,6 +48,9 @@ class Login extends Component {
     }
 
     render() {
+        if(this.state.isLogin) {
+            return <Redirect to="/home"/>
+        }
         return (
             <div className={'main'}>
                 <div className={"sidebar"}></div>

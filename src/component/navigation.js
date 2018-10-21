@@ -3,11 +3,19 @@ import { Link } from "react-router-dom";
 import '../css/navi.css'
 import {bindActionCreators} from "redux";
 import connect from "react-redux/es/connect/connect";
-import {getTopics} from "../action/app";
+import {getTopics, appLogin} from "../action/app";
+import * as request from "../apiserver/request"
 
 class Navigation extends Component {
     _logOut() {
-        console.log('logOut')
+        request.logout().then((res) => {
+            console.log(res)
+            if(res.type == 0) {
+                this.props.appLogin(false)
+            }
+        }).catch((err) => {
+            console.log(err)
+        })
     }
     render() {
         const { app } = this.props
@@ -58,6 +66,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         getTopics: bindActionCreators(getTopics, dispatch),
+        appLogin: bindActionCreators(appLogin, dispatch),
     }
 }
 

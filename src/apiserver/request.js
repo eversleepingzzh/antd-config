@@ -54,3 +54,19 @@ export function reply_add(bodyparams) {
     }
     return request(params)
 }
+
+export function logout() {
+    let params = {
+        url:'http://localhost:2000/api/index/logout',
+        method: "GET",
+    }
+    return request(params)
+}
+
+export function get_login_state() {
+    let params  ={
+        url: 'http://localhost:2000/api/index/login_state',
+        method: "GET"
+    }
+    return request(params)
+}

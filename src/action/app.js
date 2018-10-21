@@ -3,6 +3,26 @@
  */
 import * as request from '../apiserver/request';
 
+export function appInit() {
+    return (dispatch, getState) => {
+        request.get_login_state().then((res) => {
+            console.log(res)
+            if(res.type == 0) {
+                dispatch({
+                    type: 'LOGIN',
+                    isLogin: true
+                })
+            }else {
+                dispatch({
+                    type: 'LOGIN',
+                    isLogin: false
+                })
+            }
+        }).catch((err) => {
+            console.log(err)
+        })
+    }
+}
 
 export function appLogin(isLogin) {
     return (dispatch, getState) => {
@@ -16,6 +36,7 @@ export function appLogin(isLogin) {
 export function getTopics() {
     return (dispatch, getState) => {
         request.topic_all().then((res) => {
+            console.log(res)
             dispatch({
                 type: 'GET_ALL_TOPIC',
                 topics: res
